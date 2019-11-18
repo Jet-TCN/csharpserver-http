@@ -1,0 +1,14 @@
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\hostpolicy.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\hostfxr.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.exe
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.deps.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.runtimeconfig.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.runtimeconfig.dev.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\CSServer.pdb
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.csprojAssemblyReference.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.csproj.CoreCompileInputs.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.AssemblyInfoInputs.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.AssemblyInfo.cs
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.pdb

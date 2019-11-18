@@ -1,0 +1,11 @@
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Release\netcoreapp2.1\win-x64\CSServer.deps.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Release\netcoreapp2.1\win-x64\CSServer.runtimeconfig.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Release\netcoreapp2.1\win-x64\CSServer.runtimeconfig.dev.json
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Release\netcoreapp2.1\win-x64\CSServer.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Release\netcoreapp2.1\win-x64\CSServer.pdb
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.csprojAssemblyReference.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.csproj.CoreCompileInputs.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.AssemblyInfoInputs.cache
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.AssemblyInfo.cs
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Release\netcoreapp2.1\win-x64\CSServer.pdb
