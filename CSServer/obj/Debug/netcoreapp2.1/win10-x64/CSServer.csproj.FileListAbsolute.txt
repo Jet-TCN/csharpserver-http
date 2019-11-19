@@ -12,3 +12,6 @@ C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CS
 C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.AssemblyInfo.cs
 C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.dll
 C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.pdb
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\PresentationCore.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\bin\Debug\netcoreapp2.1\win10-x64\System.Windows.Forms.VisualStudio.15.0.dll
+C:\Users\Jet\source\repos\CSServer\CSServer\obj\Debug\netcoreapp2.1\win10-x64\CSServer.csproj.CopyComplete

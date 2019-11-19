@@ -5,7 +5,9 @@
     <title> Datacentre Alpha Interfacer</title>
 </head>
 <body>
-    <h1 id="motd1"> Welcome to Datacentre Alpha, you are currently using a guest session </h1>
+    <h1> CONNECTION ESTABLISHED </h1>
+    <h2 id="motd1"> Welcome to Datacentre Alpha, you are currently using a guest session </h2>
+    <h3 id="motd2">  </h3>
     <div class="formBox">
     <div class="form" id="formBox">
         <label id="tUname">Username:</label> <input style="display: flex; align-items: center; justify-content: center" type="text" name="uname" id="uname" />
@@ -46,13 +48,23 @@
                 document.getElementById("uname").style.display = "none";
                 document.getElementById("pword").style.display = "none";
                 document.getElementById("loginButton").style.display = "none";
-                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session, successful login attempt logged (see Logs)";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session";
+                document.getElementById("motd2").innerHTML = "Successful login attempt logged (see Logs)";
                 document.getElementById("formBox").style.display = "none";
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "ADMIN");
                 xhr.send();
+            } else if (sUsername == "capitalistPig" && sPassword == "ihatecapitalism") {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", sUsername+"/LOGIN");
+                xhr.send();
+                alert(xhr.responseURL);
             } else {
-                alert("Incorrect Username or Password");
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", sUsername+"/LOGIN");
+                xhr.send();
+                 alert(xhr.responseText);
+                //alert("Incorrect Username or Password");
             }
         }
     </script>
