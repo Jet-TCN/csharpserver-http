@@ -1,19 +1,64 @@
 ﻿
 body {
-    background-color: darkblue;
+    background-color: black;
+    background-image: url("https://wallpapercave.com/wp/wp3328592.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     font-family: Arial;
     margin-left: 10px;
     margin-right: 10px;
     font-weight: 100;
+    
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00d8ff, 0 0 40px #00d8ff, 0 0 50px #00d8ff, 0 0 60px #00d8ff, 0 0 70px #00d8ff;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #00aac8, 0 0 50px #00aac8, 0 0 60px #00aac8, 0 0 70px #00aac8, 0 0 80px #00aac8;
+    }
 }
 h1 {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
     text-align: center;
     font-weight: 100;
     vertical-align: middle;
-    line-height: 200px;
-  /*  border: double;
+    line-height: 150px;
+    font-size: 38px;
+    /*  border: double;
     border-color: cyan; */
+}
+h2 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+h3 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 24px;
 }
 
 .formBox {
@@ -36,10 +81,7 @@ h1 {
     float:  none;
 }
 
-h2 {
-    text-align: center;
-    font-weight: 100;
-}
+
 table {
     border: solid;
     border-width: thin;

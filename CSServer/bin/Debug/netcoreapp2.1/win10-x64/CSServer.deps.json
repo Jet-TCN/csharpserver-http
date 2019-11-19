@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1/win10-x64",
-    "signature": "4812e0758eecc63adaf2798f52739171a7a65836"
+    "signature": "45226ad35345a178219951fb65f35383119bd1f0"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,8 @@
     ".NETCoreApp,Version=v2.1/win10-x64": {
       "CSServer/1.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": "2.1.6"
+          "Microsoft.NETCore.App": "2.1.6",
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "CSServer.dll": {}
@@ -46,6 +47,14 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2"
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
         }
       },
       "runtime.win-x64.Microsoft.NETCore.App/2.1.6": {
@@ -923,6 +932,13 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aTRmXwR5xYu+mWxE8r8W1DWnL02SeV8LwdQMsLwTWP8OZgrCCyTqvOAe5hRb1VNQYXjln7qr0PKpSyO/pcc19Q==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "runtime.win-x64.Microsoft.NETCore.App/2.1.6": {
       "type": "package",

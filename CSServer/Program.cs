@@ -5,7 +5,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Input;
-
+using Newtonsoft.Json;
 using Microsoft.VisualBasic;
 
 namespace CSServer
@@ -15,13 +15,17 @@ namespace CSServer
     {
 
        
-
+       
         static HttpListener _httpListener = new HttpListener();
         static string path = @"C:\Users\Jet\source\repos\CSServer\CSServer\log.txt";
+        static string compPass = string.Empty;
         static void Main(string[] args)
         {
 
-            
+        //    Console.WriteLine(Utilities.getData(Utilities.EncodeMD5("thisuserisnotonfire").ToLower())) ;
+          Console.WriteLine(Password.getData(Password.EncodeMD5("qwerty4231").ToLower()));
+
+
             if (!File.Exists(path))
             {
                 // Create a file to write to.
@@ -110,9 +114,8 @@ namespace CSServer
                 Console.WriteLine(context.Request.Url.ToString());
                 if (context.Request.Url.ToString().EndsWith("/log") || context.Request.Url.ToString().EndsWith("/log/"))
                 {
-
                     byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes("<style> body { color: green; } </style>" + System.IO.File.ReadAllText("C:\\Users\\Jet\\source\\repos\\CSServer\\CSServer\\log.html") +
-                      "<head><style>" + System.IO.File.ReadAllText("C:\\Users\\Jet\\source\\repos\\CSServer\\CSServer\\styles.css") + "</style></head>"); // get the bytes to response
+                                         "<head><style>" + System.IO.File.ReadAllText("C:\\Users\\Jet\\source\\repos\\CSServer\\CSServer\\styles.css") + "</style></head>"); // get the bytes to response
                     try
                     {
                         context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length); // write bytes to the output stream
@@ -125,9 +128,79 @@ namespace CSServer
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
+                else if (context.Request.Url.ToString().EndsWith("/LOGIN"))
+                {
+                    try
+                    {
+                        string receivedURL = context.Request.Url.ToString();
+                        string receivedHash = Utilities.EncodeMD5((receivedURL.Substring(0, receivedURL.Length - 6)).Substring("http://localhost:5000/".Length)).ToLower();
+                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 6)).Substring("http://localhost:5000/".Length);
+                        Console.WriteLine(receivedHash);
+                        var lookUp = Utilities.getData(receivedHash);
+                        var logUp = lookUp;
+                        Console.WriteLine(lookUp);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(compPass);
+                        Console.WriteLine(" | " + receivedHash);
+                        if (compPass == receivedHash)
+                        {
+                            lookUp = "Success!";
+                        }
+                        compPass = string.Empty;
+                        Console.WriteLine(lookUp);
+                        byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(logUp);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length);
+                        //   Console.WriteLine("Potential admin activity, see logs");
+                        using (StreamWriter sw = File.AppendText(path))
+                        {
+                            sw.WriteLine("<p style='color: green'> [" + DateTime.Now.ToString() + "] Authorized " + logUp + " access by " + Dns.GetHostByName(Dns.GetHostName()).AddressList[1].ToString() + "@" + Dns.GetHostName() + "  </p>");
+                        }
+                    }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Connection interrupt!");
+                        ResponseThread();
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
+                else if (context.Request.Url.ToString().EndsWith("/PASSWORD"))
+                {
+                    try
+                    {
+                        string receivedURL = context.Request.Url.ToString();
+                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 9)).Substring("http://localhost:5000/".Length);
+                        Console.WriteLine(receivedPassword);
+                        var lookUp = Password.getData(Password.EncodeMD5(receivedPassword).ToLower());
+                        if (lookUp != "")
+                        {
+                            Console.WriteLine(lookUp);
+                            compPass = lookUp;
+                        } else
+                        {
+                          
+                        }
+                       // byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(lookUp);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        //context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length);
+                        //   Console.WriteLine("Potential admin activity, see logs");
+                  //      using (StreamWriter sw = File.AppendText(path))
+                    //    {
+                    //        sw.WriteLine("<p style='color: green'> [" + DateTime.Now.ToString() + "] Authorized " + lookUp + " access by " + Dns.GetHostByName(Dns.GetHostName()).AddressList[1].ToString() + "@" + Dns.GetHostName() + "  </p>");
+                      //  }
+                    }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Connection interrupt!");
+                        ResponseThread();
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
                 else if (context.Request.Url.ToString().EndsWith("/log.txt") || context.Request.Url.ToString().EndsWith("/log.txt/"))
                 {
-                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText("C:\\Users\\Jet\\source\\repos\\CSServer\\CSServer\\log.txt")); // get the bytes to response
+                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(/*"   <style> body { margin: 0; line-height: 16px; color: green; font-size: 16px; font-weight: bold; font-family: Arial; } </style>" +*/ System.IO.File.ReadAllText("C:\\Users\\Jet\\source\\repos\\CSServer\\CSServer\\log.txt")); // get the bytes to response
                     try
                     {
                         context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length); // write bytes to the output stream
@@ -148,7 +221,7 @@ namespace CSServer
                         Console.WriteLine("Potential admin activity, see logs");
                         using (StreamWriter sw = File.AppendText(path))
                         {
-                            sw.WriteLine("<p style='color: green'> [" + DateTime.Now.ToString() + "] Authorized admin access by " + Dns.GetHostByName(Dns.GetHostName()).AddressList[1].ToString() + "@" + Dns.GetHostName() + "  </p>");
+                            sw.WriteLine("<p style='color: yellow'> [" + DateTime.Now.ToString() + "] Attention! ROOT Admin account sign-in utilized for previous admin account authorization. </p>");
                         }
                     }
                     catch

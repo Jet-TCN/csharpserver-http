@@ -5,7 +5,9 @@
     <title> Datacentre Alpha Interfacer</title>
 </head>
 <body>
-    <h1 id="motd1"> Welcome to Datacentre Alpha, you are currently using a guest session </h1>
+    <h1> CONNECTION ESTABLISHED </h1>
+    <h2 id="motd1"> Welcome to Datacentre Alpha, to use this service, please login </h2>
+    <h3 id="motd2" class="glow" style="font-size: initial">  </h3>
     <div class="formBox">
     <div class="form" id="formBox">
         <label id="tUname">Username:</label> <input style="display: flex; align-items: center; justify-content: center" type="text" name="uname" id="uname" />
@@ -21,13 +23,21 @@
 
     </p>
     <div id="outer">
-    <div id="adminButtons" style="display: none">
-        <div class="inner"> <a href="\log\" class="button"> Logs </a></div>
-        <div class="inner"> <a href="\console\" class="button"> Server Console </a> </div>
-        <div class="inner"><a href="\data\" class="button"> Data </a></div>
-        <div class="inner"><a href="\.." class="button"> Logout </a></div>
-    </div>
+        <div id="adminButtons" style="display: none">
+            <div class="inner"> <a href="\log\" class="button"> Logs </a></div>
+            <div class="inner"> <a href="\console\" class="button"> Server Console </a> </div>
+            <div class="inner"><a href="\data\" class="button"> Data </a></div>
         </div>
+        <div id="memberButtons" style="display: none">
+        <div class="inner"><a href="\transmissions\" class="button"> Transmissions </a></div>
+            </div>
+        <div id="guestButtons" style="display: none">
+
+            <div class="inner"><a href="\.." class="button"> Logout </a></div>
+            <div class="inner"><a href="\info\" class="button"> Information </a></div>
+
+        </div>
+    </div>
     <script>
        
             document.getElementById("pword").addEventListener("keyup", function (event) {
@@ -39,22 +49,77 @@
         function login() {
             var sUsername = document.getElementById("uname").value;
             var sPassword = document.getElementById("pword").value;
-            if (sUsername == "admin" && sPassword == "admin") {
+
+            /*if (sUsername == "admin" && sPassword == "admin") {
                 document.getElementById("adminButtons").style.display = "initial";
                 document.getElementById("tUname").style.display = "none";
                 document.getElementById("tPword").style.display = "none";
                 document.getElementById("uname").style.display = "none";
                 document.getElementById("pword").style.display = "none";
                 document.getElementById("loginButton").style.display = "none";
-                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session, successful login attempt logged (see Logs)";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session";
+                document.getElementById("motd2").innerHTML = "Successful login attempt logged (see Logs)";
                 document.getElementById("formBox").style.display = "none";
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "ADMIN");
                 xhr.send();
-            } else {
-                alert("Incorrect Username or Password");
+            } else { */
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", sPassword + "/PASSWORD", false);
+            xhr.send();
+            //    document.getElementById("motd1").innerHTML = xhr.responseText;
+            xhr.open("POST", sUsername + "/LOGIN", false);
+            xhr.send();
+            //      document.getElementById("motd2").innerHTML = xhr.responseText;
+            var rank = xhr.responseText;
+          //  document.getElementById("motd1").innerHTML = xhr.responseText;
+            //alert("Incorrect Username or Password");
+            if (rank == "ADMIN") {
+                document.getElementById("adminButtons").style.display = "initial";
+                document.getElementById("memberButtons").style.display = "initial";
+                document.getElementById("guestButtons").style.display = "initial";
+                document.getElementById("tUname").style.display = "none";
+                document.getElementById("tPword").style.display = "none";
+                document.getElementById("uname").style.display = "none";
+                document.getElementById("pword").style.display = "none";
+                document.getElementById("loginButton").style.display = "none";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session";
+                document.getElementById("motd2").innerHTML = "Successful login attempt logged (see Logs)";
+                document.getElementById("formBox").style.display = "none";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "ADMIN");
+                xhr.send();
+            } else if (rank == "MEMBER") {
+                //        document.getElementById("adminButtons").style.display = "initial";
+                document.getElementById("memberButtons").style.display = "initial";
+                document.getElementById("guestButtons").style.display = "initial";
+                document.getElementById("tUname").style.display = "none";
+                document.getElementById("tPword").style.display = "none";
+                document.getElementById("uname").style.display = "none";
+                document.getElementById("pword").style.display = "none";
+                document.getElementById("loginButton").style.display = "none";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using a member session";
+                document.getElementById("motd2").innerHTML = "Successful login attempt logged";
+                document.getElementById("formBox").style.display = "none";
+            } else if (rank == "GUEST") {
+                document.getElementById("guestButtons").style.display = "initial";
+                document.getElementById("tUname").style.display = "none";
+                document.getElementById("tPword").style.display = "none";
+                document.getElementById("uname").style.display = "none";
+                document.getElementById("pword").style.display = "none";
+                document.getElementById("loginButton").style.display = "none";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using a guest session";
+                document.getElementById("motd2").innerHTML = "Successful login attempt logged";
+                document.getElementById("formBox").style.display = "none";
+            }
+
+            else {
+                alert("Incorrect Username or Password")
             }
         }
+            
+        
     </script>
 </body>
 
