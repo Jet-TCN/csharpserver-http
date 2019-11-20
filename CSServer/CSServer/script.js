@@ -1,1 +1,0 @@
-﻿alert("Text box 1");
