@@ -18,7 +18,7 @@ namespace CSServer
        
         static HttpListener _httpListener = new HttpListener();
         static string newLog = DateTime.Now.Date.ToString("dd-MM-yyyy") + ".txt";
-        static string path = @"log-"+newLog;
+        static string path = @"..\..\log-" + newLog;
         static string compPass = string.Empty;
         static void Main(string[] args)
         {
@@ -84,12 +84,12 @@ namespace CSServer
                     
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("HTML");
-                    Console.WriteLine(System.IO.File.ReadAllText(@"main.html"));
+                    Console.WriteLine(System.IO.File.ReadAllText(@"..\..\main.html"));
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("CSS");
                    
                         Console.WriteLine(
-                  System.IO.File.ReadAllText(@"styles.css"));
+                  System.IO.File.ReadAllText(@"..\..\styles.css"));
                 }
             }
         }
@@ -117,8 +117,8 @@ namespace CSServer
                 if (context.Request.Url.ToString().EndsWith("/log") || context.Request.Url.ToString().EndsWith("/log/"))
                 {
                     byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes("<style> body { color: green; } </style>" + System.IO.File.ReadAllText(
-                        @"log.html") +
-                                         "<head><style>" + System.IO.File.ReadAllText(@"styles.css") + "</style></head>"); // get the bytes to response
+                        @"..\..\log.html") +
+                                         "<head><style>" + System.IO.File.ReadAllText(@"..\..\styles.css") + "</style></head>"); // get the bytes to response
                     try
                     {
                         context.Response.OutputStream.Write(_responseArray, 0, _responseArray.Length); // write bytes to the output stream
@@ -242,8 +242,8 @@ namespace CSServer
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 } else if (context.Request.Url.ToString().EndsWith("/info") || context.Request.Url.ToString().EndsWith("/info/")) {
-                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(@"info.html") +
-"<head><style>" + System.IO.File.ReadAllText(@"styles.css") + "</style></head>" +
+                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(@"..\..\info.html") +
+"<head><style>" + System.IO.File.ReadAllText(@"..\..\styles.css") + "</style></head>" +
 "<script type='text/javascript' src='script.js'> </script>"); // get the bytes to response   
                     try
                     {
@@ -259,8 +259,8 @@ namespace CSServer
                 }
                 else
                 {
-                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(@"main.html") +
-"<head><style>" + System.IO.File.ReadAllText(@"styles.css") + "</style></head>" +
+                    byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(@"..\..\main.html") +
+"<head><style>" + System.IO.File.ReadAllText(@"..\..\styles.css") + "</style></head>" +
 "<script type='text/javascript' src='script.js'> </script>"); // get the bytes to response   
                     try
                     {

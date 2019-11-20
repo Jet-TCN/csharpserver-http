@@ -84,7 +84,7 @@ namespace CSServer
                     
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("HTML");
-                    Console.WriteLine(System.IO.File.ReadAllText(@"main.html"));
+                    Console.WriteLine(System.IO.File.ReadAllText(@"..\..\main.html"));
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("CSS");
                    

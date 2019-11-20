@@ -35,6 +35,6 @@
 <p style='color: green'> [11/20/2019 6:52:44 PM] Authorized ADMIN access by 192.168.1.41@LAPTOP-CSJAVPLG  </p>
 <p style='color: yellow'> [11/20/2019 6:52:45 PM] Attention! ROOT Admin account sign-in utilized for previous admin account authorization. </p>
 <p style='color: green'> [11/20/2019 6:59:59 PM] Server initiated by 192.168.1.41@LAPTOP-CSJAVPLG  </p>
-<p style='color: green'> [11/20/2019 7:04:07 PM] Server initiated by 192.168.1.41@LAPTOP-CSJAVPLG  </p>
-<p style='color: green'> [11/20/2019 7:04:15 PM] Authorized ADMIN access by 192.168.1.41@LAPTOP-CSJAVPLG  </p>
-<p style='color: yellow'> [11/20/2019 7:04:15 PM] Attention! ROOT Admin account sign-in utilized for previous admin account authorization. </p>
+<p style='color: green'> [11/20/2019 10:00:01 PM] Server initiated by 192.168.1.43@DESKTOP-DI6J977  </p>
+<p style='color: green'> [11/20/2019 10:00:49 PM] Server initiated by 192.168.1.43@DESKTOP-DI6J977  </p>
+<p style='color: green'> [11/20/2019 10:00:54 PM] Server closed by 192.168.1.43@DESKTOP-DI6J977  </p>
