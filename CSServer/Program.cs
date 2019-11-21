@@ -50,7 +50,7 @@ namespace CSServer
             try
             {
 
-                _httpListener.Prefixes.Add("http://localhost:5000/"); // add prefix "http://localhost:5000/"
+                _httpListener.Prefixes.Add("http://*:5000/"); // add prefix "http://localhost:5000/"
             } catch (UnauthorizedAccessException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -114,6 +114,10 @@ namespace CSServer
                 HttpListenerContext context = _httpListener.GetContext(); // get a context
                                                                           // Now, you'll find the request URL in context.Request.Url
                 Console.WriteLine(context.Request.Url.ToString());
+              //  Console.WriteLine(context.Request.UrlReferrer.ToString());
+                Console.WriteLine(context.Request.RawUrl.ToString());
+               // Console.WriteLine(context.Request.UrlReferrer.Segments.ToString());
+             
                 if (context.Request.Url.ToString().EndsWith("/log") || context.Request.Url.ToString().EndsWith("/log/"))
                 {
                     byte[] _responseArray = System.Text.Encoding.UTF8.GetBytes("<style> body { color: green; } </style>" + System.IO.File.ReadAllText(
@@ -135,11 +139,13 @@ namespace CSServer
                 {
                     try
                     {
+                      
                         var logUp = "";
                         string receivedURL = context.Request.Url.ToString();
-                        string receivedHash = Utilities.EncodeSHA512((receivedURL.Substring(0, receivedURL.Length - 6)).Substring("http://localhost:5000/".Length)).ToUpper();
-                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 6)).Substring("http://localhost:5000/".Length);
+                        string receivedHash = Utilities.EncodeSHA512((receivedURL.Substring(0, receivedURL.Length - 6)).Substring(context.Request.Url.ToString().Length-context.Request.RawUrl.ToString().Length + 1)).ToUpper();
+                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 6)).Substring(context.Request.Url.ToString().Length - context.Request.RawUrl.ToString().Length + 1);
                         Console.WriteLine(receivedHash);
+                        Console.WriteLine((receivedURL.Substring(0, receivedURL.Length - 6)).Substring(context.Request.Url.ToString().Length - context.Request.RawUrl.ToString().Length + 1));
                         var lookUp = Utilities.getData(receivedHash);
                          logUp = lookUp;
                         Console.WriteLine(lookUp);
@@ -180,7 +186,7 @@ namespace CSServer
                     try
                     {
                         string receivedURL = context.Request.Url.ToString();
-                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 9)).Substring("http://localhost:5000/".Length);
+                        string receivedPassword = (receivedURL.Substring(0, receivedURL.Length - 9)).Substring(context.Request.Url.ToString().Length - context.Request.RawUrl.ToString().Length + 1);
                         Console.WriteLine(receivedPassword);
                         var lookUp = Password.getData(Password.EncodeSHA512(receivedPassword).ToUpper());
                         if (lookUp != "")

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title> Datacentre Alpha Interfacer</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+    <h1> Logs </h1>
+    <div style="text-align: center">
+        <label style=""> Auto-refresh (Every second)</label><input type="checkbox" id="logBox" />
+    </div>
+
+    <p style="color: green"> <iframe src="log.txt" style="background-color: black; color: green" id="logFrame" width="100%" height="100%"></iframe></p>
+    <script>
+        var xhr = new XMLHttpRequest;
+
+        var frame = document.getElementById("logFrame");
+        frame.onload = function () {
+            document.getElementById("logFrame").contentWindow.scrollTo(0, 0xFFFFFF);
+            var body = frame.contentWindow.document.querySelector('body');
+            //  body.style.fontSize = "16px";
+            //    body.style.lineHeight = "16px";
+            //      body.style.font = "bold 16px arial,serif"
+
+        }
+        function refresh() {
+
+            //   xhr.open('GET', 'log.txt');
+            //  xhr.send();
+
+            if (document.getElementById("logBox").checked == true) {
+                frame.src = frame.src;
+            }
+        }
+        setInterval(refresh, 1000);
+
+    </script>
+</body>
+
+
+</html>

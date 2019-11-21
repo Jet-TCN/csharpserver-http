@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title> Datacentre Alpha Interfacer</title>
+</head>
+<body>
+    <h1 id="motd1"> Welcome to Datacentre Alpha, you are currently using a guest session </h1>
+    <div class="form">
+        <label id="tUname">Username:</label> <input style="display: flex; align-items: center; justify-content: center" type="text" name="uname" id="uname" />
+        <label id="tPword">Password:</label> <input style="align-items: center" type="password" name="pword" id="pword" />
+        <button style="align-items: center" onclick="login()" id="loginButton">Login</button>
+
+    </div>
+ <p>
+
+
+ </p>
+    <a href="\log\" class="button"> Logs </a>
+    <a href="\console\" class="button"> Server Console </a>
+    <a href="\data\" class="button"> Data </a>
+    <a href="\" class="button"> Logout </a>
+
+
+    <script>
+        document.getElementById("pword").addEventListener("keyup", function (event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("loginButton").click();
+            }
+        });
+        function login() {
+            var sUsername = document.getElementById("uname").value;
+            var sPassword = document.getElementById("pword").value;
+            if (sUsername == "admin" && sPassword == "admin") {
+
+                document.getElementById("tUname").style.display = "none";
+                document.getElementById("tPword").style.display = "none";
+                document.getElementById("uname").style.display = "none";
+                document.getElementById("pword").style.display = "none";
+                document.getElementById("loginButton").style.display = "none";
+                document.getElementById("motd1").innerHTML = "Welcome to Datacentre Alpha, you are currently using an admin session";
+            } else {
+                alert("Incorrect Username or Password");
+            }
+        }
+    </script>
+</body>
+
+
+</html>

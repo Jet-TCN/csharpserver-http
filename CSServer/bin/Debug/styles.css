@@ -1,0 +1,144 @@
+﻿
+body {
+    background-color: black;
+    background-image: url("https://wallpapercave.com/wp/wp3328592.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: Arial;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 100;
+    
+}
+
+.glow {
+  /*  font-size: 80px; */
+    color: #fff;
+    text-align: left;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.redglow {
+    color: #fff;
+    text-align: left;
+    -webkit-animation: redglow 1s ease-in-out infinite alternate;
+    -moz-animation: redglow 1s ease-in-out infinite alternate;
+    animation: redglow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes redglow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FF0000, 0 0 40px #FF0000, 0 0 50px #FF0000, 0 0 60px #FF0000, 0 0 70px #FF0000;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #990000, 0 0 40px #990000, 0 0 50px #990000, 0 0 60px #990000, 0 0 70px #990000, 0 0 80px #990000;
+    }
+}
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00d8ff, 0 0 40px #00d8ff, 0 0 50px #00d8ff, 0 0 60px #00d8ff, 0 0 70px #00d8ff;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #00aac8, 0 0 50px #00aac8, 0 0 60px #00aac8, 0 0 70px #00aac8, 0 0 80px #00aac8;
+    }
+}
+h1 {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+    text-align: center;
+    font-weight: 100;
+    vertical-align: middle;
+    line-height: 150px;
+    font-size: 38px;
+    /*  border: double;
+    border-color: cyan; */
+}
+h2 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+h3 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 24px;
+}
+
+.formBox {
+    /*align-self: center;
+    width: 50px;
+    height: 100px;
+    padding: 50px;
+    display: inline-block;
+    border: 2px solid;*/
+}
+.form {
+    margin: 0 auto;
+    width: 210px;
+   border: 2px solid;
+}
+
+.form label {
+    display: inline-block;
+    text-align: center;
+    float:  none;
+}
+
+
+table {
+    border: solid;
+    border-width: thin;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+}
+.button {
+    border-radius: 5px;
+    background-color: #1c87c9;
+    border: none;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    cursor: pointer;
+    justify-content: center;
+}
+#outer {
+    width: 100%;
+    text-align: center;
+}
+.inner {
+    display: inline-block;
+}
+.button:hover {
+    background-color: #00aac8;
+    
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.highlight {
+    background-color: white;
+    color: darkblue;
+}
